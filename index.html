@@ -13,40 +13,53 @@
       --text: #e2e8f0; --muted: #64748b; --accent: #f97316;
       --accent-dim: rgba(249,115,22,0.12); --green: #22c55e;
       --green-dim: rgba(34,197,94,0.1); --blue: #3b82f6;
-      --blue-dim: rgba(59,130,246,0.1);
+      --blue-dim: rgba(59,130,246,0.1); --yellow: #eab308;
+      --yellow-dim: rgba(234,179,8,0.1);
     }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
-    .wrapper { width: 100%; max-width: 520px; }
-    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .wrapper { width: 100%; max-width: 540px; }
+
+    /* Header */
+    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
     .logo-mark { width: 36px; height: 36px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
     .header-text h1 { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
     .header-text p { font-size: 12px; color: var(--muted); margin-top: 1px; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-    .card-header { padding: 20px 24px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-    .card-title { font-size: 13px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* Card da dívida */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 16px; }
+    .card-header { padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .card-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
     .badge { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 20px; background: var(--green-dim); color: var(--green); display: flex; align-items: center; gap: 5px; }
     .badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-    .data-grid { padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+    .data-grid { padding: 18px 24px; display: flex; flex-direction: column; gap: 12px; }
     .data-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
     .data-label { font-size: 12px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
-    .data-value { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); text-align: right; word-break: break-word; }
-    .data-value.highlight { color: var(--accent); font-weight: 500; }
+    .data-value { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); text-align: right; }
+    .data-value.big { color: var(--accent); font-weight: 500; font-size: 14px; }
     .data-value.green { color: var(--green); }
-    .divider { height: 1px; background: var(--border); margin: 4px 24px; }
-    .cta-area { padding: 20px 24px 24px; }
-    .info-box { background: var(--blue-dim); border: 1px solid rgba(59,130,246,0.2); border-radius: 10px; padding: 12px 14px; font-size: 12px; color: #93c5fd; line-height: 1.5; margin-bottom: 16px; }
-    .info-box strong { color: #bfdbfe; }
-    .widget-wrap { display: flex; justify-content: center; padding: 8px 0 4px; }
-    .scenario-section { margin-top: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; }
-    .scenario-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
-    .scenarios { display: flex; flex-direction: column; gap: 8px; }
-    .scenario-btn { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: transparent; border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-size: 13px; cursor: pointer; text-align: left; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
-    .scenario-btn:hover { border-color: var(--accent); background: var(--accent-dim); }
-    .scenario-btn.active { border-color: var(--accent); background: var(--accent-dim); color: #fed7aa; }
-    .scenario-num { width: 20px; height: 20px; border-radius: 6px; background: var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: var(--muted); flex-shrink: 0; }
-    .scenario-btn.active .scenario-num { background: var(--accent); color: #fff; }
-    .footer { margin-top: 20px; text-align: center; font-size: 11px; color: var(--muted); }
+    .divider { height: 1px; background: var(--border); margin: 0 24px; }
+
+    .cta-area { padding: 18px 24px 22px; }
+    .info-box { background: var(--blue-dim); border: 1px solid rgba(59,130,246,0.2); border-radius: 10px; padding: 12px 14px; font-size: 12px; color: #93c5fd; line-height: 1.6; margin-bottom: 16px; }
+    .info-box strong { color: #bfdbfe; display: block; margin-bottom: 4px; }
+    .widget-wrap { display: flex; justify-content: center; padding: 4px 0; }
+
+    /* Sugestões de comportamento */
+    .hints-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px 24px; margin-bottom: 20px; }
+    .hints-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; }
+    .hints-grid { display: flex; flex-direction: column; gap: 8px; }
+    .hint { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .hint-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .hint b { color: var(--text); display: block; margin-bottom: 2px; font-size: 12px; }
+
+    .footer { text-align: center; font-size: 11px; color: var(--muted); }
     elevenlabs-convai { --el-primary-color: #f97316; }
   </style>
 </head>
@@ -56,43 +69,92 @@
   <div class="header">
     <div class="logo-mark">🏦</div>
     <div class="header-text">
-      <h1>TOTVS Techfin</h1>
-      <p>Agente de Cobrança — Ambiente de Teste</p>
+      <h1>TOTVS Techfin — Agente de Cobrança</h1>
+      <p>Demo de voz com IA · Ambiente de teste</p>
     </div>
   </div>
 
+  <!-- Dívida mockada fixa -->
   <div class="card">
     <div class="card-header">
-      <span class="card-title">Dados do Cliente (Mock)</span>
+      <span class="card-title">Situação do Cliente</span>
       <span class="badge">Agente ativo</span>
     </div>
-    <div class="data-grid" id="data-display"></div>
+    <div class="data-grid">
+      <div class="data-row">
+        <span class="data-label">Empresa</span>
+        <span class="data-value">Tech Soluções Ltda</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Contato</span>
+        <span class="data-value">Anderson Souza</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Notas Fiscais</span>
+        <span class="data-value">NF-1042, NF-1043</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Vencimentos</span>
+        <span class="data-value">05/03 e 20/03/2026</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="data-grid">
+      <div class="data-row">
+        <span class="data-label">Total em atraso</span>
+        <span class="data-value big">R$ 8.750,00</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Proposta à vista (10% off)</span>
+        <span class="data-value green">R$ 7.875,00</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Melhor desconto à vista</span>
+        <span class="data-value green">R$ 7.500,00</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Parcelamento disponível</span>
+        <span class="data-value">3x — 1ª parcela 25/04</span>
+      </div>
+    </div>
     <div class="divider"></div>
     <div class="cta-area">
       <div class="info-box">
-        <strong>Como testar:</strong> selecione o cenário abaixo, depois clique no botão para iniciar a conversa.
+        <strong>Como testar</strong>
+        Clique no botão e interaja livremente com o agente. Você é o cliente — decida na hora como reagir. O agente se adaptará ao que você disser.
       </div>
-      <div class="widget-wrap" id="widget-wrap">
-        <!-- widget renderizado via JS com dynamic-variables já embutidas -->
-      </div>
+      <div class="widget-wrap" id="widget-wrap"></div>
     </div>
   </div>
 
-  <div class="scenario-section">
-    <div class="scenario-title">Selecionar Cenário</div>
-    <div class="scenarios">
-      <button class="scenario-btn active" data-scenario="1" onclick="selectScenario(1)">
-        <span class="scenario-num">1</span>Reconhece a dívida e quer parcelar
-      </button>
-      <button class="scenario-btn" data-scenario="2" onclick="selectScenario(2)">
-        <span class="scenario-num">2</span>Reconhece mas não tem condições de pagar
-      </button>
-      <button class="scenario-btn" data-scenario="3" onclick="selectScenario(3)">
-        <span class="scenario-num">3</span>Não reconhece a transação
-      </button>
-      <button class="scenario-btn" data-scenario="4" onclick="selectScenario(4)">
-        <span class="scenario-num">4</span>Não é a empresa correta
-      </button>
+  <!-- Sugestões de comportamento -->
+  <div class="hints-card">
+    <div class="hints-title">Sugestões de comportamento para o teste</div>
+    <div class="hints-grid">
+      <div class="hint">
+        <span class="hint-icon">✅</span>
+        <div><b>Aceitar à vista</b> Confirme a empresa e aceite a proposta de quitação com desconto.</div>
+      </div>
+      <div class="hint">
+        <span class="hint-icon">🔄</span>
+        <div><b>Pedir parcelamento</b> Diga que não consegue pagar à vista e negocie o parcelamento.</div>
+      </div>
+      <div class="hint">
+        <span class="hint-icon">🚫</span>
+        <div><b>Sem condições no momento</b> Diga que a situação está difícil e recuse todas as propostas.</div>
+      </div>
+      <div class="hint">
+        <span class="hint-icon">❓</span>
+        <div><b>Contestar a dívida</b> Diga que não reconhece as notas fiscais ou que nunca fez essa compra.</div>
+      </div>
+      <div class="hint">
+        <span class="hint-icon">🏢</span>
+        <div><b>Empresa errada</b> Diga que não conhece a Tech Soluções Ltda e que ligaram para o número errado.</div>
+      </div>
+      <div class="hint">
+        <span class="hint-icon">🎭</span>
+        <div><b>Improvise</b> Mude de ideia no meio, peça para falar com humano, questione os juros — o agente lida com tudo.</div>
+      </div>
     </div>
   </div>
 
@@ -102,12 +164,11 @@
 
 <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
 <script>
-const SCENARIOS = {
-  1: {
-    razao_social_ou_nome: "Anderson Souza / Tech Soluções Ltda",
+  const VARS = {
+    razao_social_ou_nome: "Tech Soluções Ltda",
     nome_do_contato: "Anderson Souza",
     nome_do_produto: "TOTVS Techfin",
-    numeros_notas_fiscais: "NF-1042, NF-1043, NF-1044",
+    numeros_notas_fiscais: "NF-1042 e NF-1043",
     datas_vencimento: "05/03/2026 e 20/03/2026",
     valor_total_atraso: "R$ 8.750,00",
     percentual_desconto: "10",
@@ -116,121 +177,20 @@ const SCENARIOS = {
     numero_parcelas: "3",
     data_primeira_parcela: "25/04/2026",
     dia_recorrente: "25",
-    email_cliente: "anderson.souza@techfin.com.br",
+    email_cliente: "anderson.souza@techsolucoes.com.br",
     cnpj_cpf: "12.345.678/0001-99"
-  },
-  2: {
-    razao_social_ou_nome: "Carlos Pinheiro /Distribuidora Pinheiro ME",
-    nome_do_contato: "Carlos Pinheiro",
-    nome_do_produto: "TOTVS Techfin",
-    numeros_notas_fiscais: "NF-2201, NF-2202",
-    datas_vencimento: "10/02/2026",
-    valor_total_atraso: "R$ 3.200,00",
-    percentual_desconto: "8",
-    valor_com_desconto: "R$ 2.944,00",
-    valor_com_desconto_maximo: "R$ 2.800,00",
-    numero_parcelas: "2",
-    data_primeira_parcela: "30/04/2026",
-    dia_recorrente: "30",
-    email_cliente: "carlos@distribuidorapinheiro.com.br",
-    cnpj_cpf: "98.765.432/0001-11"
-  },
-  3: {
-    razao_social_ou_nome: "Márcia Lima / Construtora Horizonte Ltda",
-    nome_do_contato: "Márcia Lima",
-    nome_do_produto: "TOTVS Techfin",
-    numeros_notas_fiscais: "NF-3310, NF-3311",
-    datas_vencimento: "15/01/2026 e 28/01/2026",
-    valor_total_atraso: "R$ 12.400,00",
-    percentual_desconto: "12",
-    valor_com_desconto: "R$ 10.912,00",
-    valor_com_desconto_maximo: "R$ 10.540,00",
-    numero_parcelas: "3",
-    data_primeira_parcela: "20/04/2026",
-    dia_recorrente: "20",
-    email_cliente: "marcia.lima@horizonte.com.br",
-    cnpj_cpf: "45.678.901/0001-55"
-  },
-  4: {
-    razao_social_ou_nome: "Roberto Campos / Agropecuária Cerrado SA",
-    nome_do_contato: "Roberto Campos",
-    nome_do_produto: "TOTVS Techfin",
-    numeros_notas_fiscais: "NF-4405",
-    datas_vencimento: "01/03/2026",
-    valor_total_atraso: "R$ 5.600,00",
-    percentual_desconto: "5",
-    valor_com_desconto: "R$ 5.320,00",
-    valor_com_desconto_maximo: "R$ 5.100,00",
-    numero_parcelas: "2",
-    data_primeira_parcela: "10/05/2026",
-    dia_recorrente: "10",
-    email_cliente: "rcampos@cerrado.com.br",
-    cnpj_cpf: "33.221.100/0001-77"
+  };
+
+  function renderWidget() {
+    const wrap = document.getElementById('widget-wrap');
+    wrap.innerHTML = '';
+    const el = document.createElement('elevenlabs-convai');
+    el.setAttribute('agent-id', 'agent_7701kpbr4dtfexxthbw6wyxtn4k2');
+    el.setAttribute('dynamic-variables', JSON.stringify(VARS));
+    wrap.appendChild(el);
   }
-};
 
-const LABELS = {
-  razao_social_ou_nome: "Empresa / Cliente",
-  numeros_notas_fiscais: "Notas Fiscais",
-  datas_vencimento: "Vencimentos",
-  valor_total_atraso: "Valor em Atraso",
-  valor_com_desconto: "Proposta à Vista",
-  numero_parcelas: "Parcelas (alçada)",
-  data_primeira_parcela: "1ª Parcela",
-  email_cliente: "E-mail cadastrado",
-  cnpj_cpf: "CNPJ"
-};
-
-const HIGHLIGHT_FIELDS = ['valor_total_atraso', 'valor_com_desconto'];
-const GREEN_FIELDS = ['numero_parcelas'];
-
-let currentScenario = 1;
-
-function renderData(scenario) {
-  const data = SCENARIOS[scenario];
-  const display = document.getElementById('data-display');
-  display.innerHTML = '';
-  Object.entries(LABELS).forEach(([key, label]) => {
-    const row = document.createElement('div');
-    row.className = 'data-row';
-    const labelEl = document.createElement('span');
-    labelEl.className = 'data-label';
-    labelEl.textContent = label;
-    const valueEl = document.createElement('span');
-    valueEl.className = 'data-value';
-    if (HIGHLIGHT_FIELDS.includes(key)) valueEl.classList.add('highlight');
-    if (GREEN_FIELDS.includes(key)) valueEl.classList.add('green');
-    valueEl.textContent = data[key];
-    row.appendChild(labelEl);
-    row.appendChild(valueEl);
-    display.appendChild(row);
-  });
-}
-
-function renderWidget(scenario) {
-  const wrap = document.getElementById('widget-wrap');
-  // Remove widget anterior
-  wrap.innerHTML = '';
-  // Cria novo elemento com dynamic-variables embutidas no atributo HTML
-  const vars = JSON.stringify(SCENARIOS[scenario]);
-  const el = document.createElement('elevenlabs-convai');
-  el.setAttribute('agent-id', 'agent_7701kpbr4dtfexxthbw6wyxtn4k2');
-  el.setAttribute('dynamic-variables', vars);
-  wrap.appendChild(el);
-}
-
-function selectScenario(n) {
-  currentScenario = n;
-  document.querySelectorAll('.scenario-btn').forEach(btn => {
-    btn.classList.toggle('active', parseInt(btn.dataset.scenario) === n);
-  });
-  renderData(n);
-  renderWidget(n);
-}
-
-// Init
-renderData(currentScenario);
-renderWidget(currentScenario);
+  renderWidget();
 </script>
 </body>
 </html>
